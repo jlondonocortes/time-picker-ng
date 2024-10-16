@@ -1,0 +1,28 @@
+<div class="time-picker">
+    <div class="period-selector">
+      <button [class.active]="period === 'AM'" (click)="setPeriod('AM')">AM</button>
+      <button [class.active]="period === 'PM'" (click)="setPeriod('PM')">PM</button>
+    </div>
+    <div class="time-display">
+      <div class="time-column">
+        <div class="item">
+          <select class="select" >
+            <option *ngFor="let hour of hours" >{{(hour>9?hour:'0'+hour)}}</option>
+          </select>
+        </div>
+        <!--<div class="time-label">12</div>-->
+      </div>
+      <div class="time-separator">:</div>
+      <div class="time-column">
+        <div class="item">
+          <select id="minute" class="select">            
+            <option *ngFor="let minute of minutes" >{{(minute>9?minute:'0'+minute)}}</option>
+          </select>
+        </div>
+        <!--<div class="time-label">59</div>-->
+      </div>
+    </div>
+    <div class="btn-container">
+      <button (click)="saveTime()">Guardar</button>
+    </div>
+</div>
