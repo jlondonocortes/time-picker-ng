@@ -4,25 +4,30 @@
       <button [class.active]="period === 'PM'" (click)="setPeriod('PM')">PM</button>
     </div>
     <div class="time-display">
-      <div class="time-column">
-        <div class="item">
+      <div class="time-column" (scroll)="eventoScroll($event)">
+        @for(h of hours; track $index){
+          <div class="item">{{(h>9?h:'0'+h)}}</div>
+        }
+        <!--<div class="item">
           <select class="select" >
-            <option *ngFor="let hour of hours" >{{(hour>9?hour:'0'+hour)}}</option>
+            @for(h of hours; track $index){
+              <option value="h" >{{(h>9?h:'0'+h)}}</option>
+            }            
           </select>
-        </div>
-        <!--<div class="time-label">12</div>-->
+        </div>-->
       </div>
       <div class="time-separator">:</div>
-      <div class="time-column">
-        <div class="item">
-          <select id="minute" class="select">            
-            <option *ngFor="let minute of minutes" >{{(minute>9?minute:'0'+minute)}}</option>
+      <div class="time-column2">
+        <div class="item2">
+          <select id="minute" class="select">  
+            @for(m of minutes; track $index){
+              <option value="m">{{(m>9?m:'0'+m)}}</option>
+            }          
           </select>
         </div>
-        <!--<div class="time-label">59</div>-->
       </div>
     </div>
     <div class="btn-container">
-      <button (click)="saveTime()">Guardar</button>
+      <!--<button (click)="saveTime()">Guardar</button>-->
     </div>
 </div>
