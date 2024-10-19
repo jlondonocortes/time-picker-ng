@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -14,7 +14,15 @@ export class TimePickerNgComponent{
   selectedHour: number = 1;
   selectedMinute: number = 0;
   period: string = 'AM';
+  private itemHeight: number = 63;
+  private container: any; 
 
+  ngAfterViewInit(): void {
+    this.container = document.querySelector('.time-column');
+    //Call to function initializeScroll
+    this.initializeScroll();
+  }
+  
   setPeriod(newPeriod: string) {
     this.period = newPeriod;
     //this.updateTime();
@@ -25,13 +33,25 @@ export class TimePickerNgComponent{
     console.log(hour);
   }
 
+  /*createElement(){
+    this.hours.forEach(item =>{
+      const i
+    })
+  }
+
+  createItem(el:number){
+    const item = document.createElement('div');
+
+  }*/
+
+
   eventoScroll(event: any){
     //obtenemo elementos con la clase .time-column
     const elemento = document.querySelector('.time-column');
     //llamamos función para definir elemento activo
     this.actualizarItemActivo(elemento);
     //llamamos function para manjera el scroll infinito
-    this.manejarScrollInfinito(elemento);
+    this.manejarScrollInfinito(elemento); 
   }
 
   actualizarItemActivo(elemento: any){    
@@ -47,7 +67,7 @@ export class TimePickerNgComponent{
       const itemPosCentro = itemDom.top + itemDom.height/2;
       //se verifica si elemento hijo es el que esta en el centro del elemento contenedor padre
       //se le agrega la clase .active si se cumple la condición, si no se quita.
-      if(Math.abs(itemPosCentro - posCentro)< 63/2){
+      if(Math.abs(itemPosCentro - posCentro)< this.itemHeight/2){
         item.classList.add('active');
       }else{
         item.classList.remove('active');
@@ -63,7 +83,15 @@ export class TimePickerNgComponent{
 
     if(scrollTop + clientHeight > scrollHeight - totalHeight){
       //continuar
+    }else if(scrollTop < totalHeight){
+      
     }
+  }
+
+  initializeScroll(){ 
+    const totalHeight = this.itemHeight * this.hours.length;
+    const initialScrollPosition = (totalHeight - this.container.clientHeight) / 2 + this.itemHeight / 2;
+    this.container.scrollTop = initialScrollPosition-90;
   }
 
 }
