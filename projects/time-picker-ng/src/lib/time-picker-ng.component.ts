@@ -14,6 +14,7 @@ export class TimePickerNgComponent implements OnInit{
   @Output() selectedTimeEvent = new EventEmitter<string>(); //Respuesta hora selecciona
   period: string = 'AM';
   private scrollTimeout:any;
+  private selectedTime: string = "00:00";
   
   ngOnInit(): void {
     //Se obtiene los elementos que contiene los item de hora y minutos.
@@ -83,16 +84,7 @@ export class TimePickerNgComponent implements OnInit{
       const scrollTop = selectedItem.offsetTop - (containerHeight / 2) + (itemHeight / 2);
       container.scrollTop = scrollTop;
     }
-  }
-
-  updateSelectedTime(){
-    //se obtiene horas y minutos seleccionado.
-    const selectedHour = document.querySelector('#hourPicker .active')?.textContent || '00';
-    const selectedMinuted = document.querySelector('#minutePicker .active')?.textContent || '00';
-    const selectedTime = document.getElementById('selectedTime');
-
-    selectedTime?.setHTMLUnsafe(`${selectedHour}:${selectedMinuted}`);
-  }
+  }  
 
   eventScroll(event: any){
     clearTimeout(this.scrollTimeout);
@@ -107,11 +99,15 @@ export class TimePickerNgComponent implements OnInit{
     this.period = newPeriod;
   }
 
+  updateSelectedTime(){
+    //se obtiene horas y minutos seleccionado.
+    const selectedHour = document.querySelector('#hourPicker .active')?.textContent || '00';
+    const selectedMinuted = document.querySelector('#minutePicker .active')?.textContent || '00';
+    this.selectedTime =`${selectedHour}:${selectedMinuted}`;
+  }
+
   saveTime(){
-    const hour = document.getElementById('selectedTime');
-    const selectedTime = hour?.textContent||"00:00";
-    console.log(hour?.textContent);
-    this.selectedTimeEvent.emit(selectedTime);
+    this.selectedTimeEvent.emit(this.selectedTime);
   }
 
 }

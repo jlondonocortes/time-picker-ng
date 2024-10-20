@@ -9,7 +9,6 @@
 .period-selector {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
   
 .period-selector button {
@@ -22,15 +21,15 @@
 }
   
 .period-selector button.active {
-  color: #3880ff;
+  color:  #222222;
   font-weight: bold;
 }
   
 .time-display {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 48px;
+  align-items: center; 
+  font-size: 1.5rem; 
 }
   
 .time-column {
@@ -59,7 +58,8 @@
 }
 
 .item.active{
-  color: #222222;    
+  color: #222222; 
+  font-size: 2rem;   
 }
 
 .time-column::before,
@@ -67,4 +67,19 @@
   content: '';
   display: block;
   height: 63px;
+}
+
+.btn-picker{
+  background-color: #1687d3;
+  border: 0px solid;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 10px;
+  appearance: none;
+  color: #f4f4f4;
+  cursor: pointer;
+}
+
+.btn-picker:hover{
+  background-color: #166faa;
 }
