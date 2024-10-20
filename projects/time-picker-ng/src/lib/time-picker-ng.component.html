@@ -1,33 +1,19 @@
 <div class="time-picker">
+  @if(time == "12"){
     <div class="period-selector">
       <button [class.active]="period === 'AM'" (click)="setPeriod('AM')">AM</button>
       <button [class.active]="period === 'PM'" (click)="setPeriod('PM')">PM</button>
     </div>
-    <div class="time-display">
-      <div class="time-column" (scroll)="eventoScroll($event)">
-        @for(h of hours; track $index){
-          <div class="item">{{(h>9?h:'0'+h)}}</div>
-        }
-        <!--<div class="item">
-          <select class="select" >
-            @for(h of hours; track $index){
-              <option value="h" >{{(h>9?h:'0'+h)}}</option>
-            }            
-          </select>
-        </div>-->
-      </div>
-      <div class="time-separator">:</div>
-      <div class="time-column2">
-        <div class="item2">
-          <select id="minute" class="select">  
-            @for(m of minutes; track $index){
-              <option value="m">{{(m>9?m:'0'+m)}}</option>
-            }          
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="btn-container">
-      <!--<button (click)="saveTime()">Guardar</button>-->
-    </div>
+  }
+  <div class="time-display">
+    <div class="time-column" id="hourPicker" (scroll)="eventScroll($event)"></div>
+    <div class="time-separator">:</div>
+    <div class="time-column" id="minutePicker" (scroll)="eventScroll($event)"></div>      
+  </div>
+
+  <div class="btn-container">
+    <div id="selectedTime"></div>
+    <!--<input type="text" id="selectedTime" readonly>-->
+    <button (click)="saveTime()">Guardar</button>
+  </div>
 </div>
