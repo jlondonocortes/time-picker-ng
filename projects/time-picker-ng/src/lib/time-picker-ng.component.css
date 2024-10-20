@@ -9,7 +9,6 @@
 .period-selector {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
   
 .period-selector button {
@@ -22,23 +21,27 @@
 }
   
 .period-selector button.active {
-  color: #3880ff;
+  color:  #222222;
   font-weight: bold;
 }
   
 .time-display {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 48px;
+  align-items: center; 
+  font-size: 1.5rem; 
 }
   
 .time-column {
   position: relative;
   width: 80px;
-  border: 1px solid red;
   height: 172px;
   overflow-y:  scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.time-column::-webkit-scrollbar{
+  display: none;
 }
   
 .time-separator {
@@ -47,45 +50,36 @@
   margin: 0 10px;
 }
   
-.select{
-  font-size: 48px;
+.time-column .item{
+  color: #888;
   font-weight: bold;
-  color: #333;
-  max-width: 100%;
-  width: 100%;
-  justify-content: center;
-  border: 0px solid;
-  background: transparent;
-  border-bottom: 1px solid #dbd1d1;
-  text-align: center;
+  cursor: pointer;
+  padding: 10px;
 }
-  /*
- select::part(icon) {
-    display: none;
-  }
-  
-  select::part(text) {
-    flex: unset;
-  }
-  
-  .item {
-    --padding-start: 0;
-    --inner-padding-end: 0;
-  }
-  
-  .item::part(native) {
-    padding: 0;
-  }*/
 
-  .time-display .time-column .item select {
-    display: none;
-  }
+.item.active{
+  color: #222222; 
+  font-size: 2rem;   
+}
 
-  .time-column  .item{
-    border: 1px solid blue;
-    color: #888;
-    font-weight: bold;
-  }
-  .time-column .item.active{
-    color: #222222;
-  }
+.time-column::before,
+.time-column::after {
+  content: '';
+  display: block;
+  height: 63px;
+}
+
+.btn-picker{
+  background-color: #1687d3;
+  border: 0px solid;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 10px;
+  appearance: none;
+  color: #f4f4f4;
+  cursor: pointer;
+}
+
+.btn-picker:hover{
+  background-color: #166faa;
+}

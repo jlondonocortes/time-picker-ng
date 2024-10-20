@@ -11,4 +11,9 @@ import { TimePickerNgComponent } from '../../../time-picker-ng/src/public-api';
 })
 export class AppComponent {
   title = 'demo';
+
+
+  alertSelectedTime(time:string){
+    alert(time);
+  }
 }
