@@ -1,5 +1,5 @@
 {
-  "name": "@tk/time-picker-ng",
+  "name": "@tuckito/time-picker-ng",
   "version": "0.0.1-alpha",
   "description": "Componenet for select time",
   "peerDependencies": {
