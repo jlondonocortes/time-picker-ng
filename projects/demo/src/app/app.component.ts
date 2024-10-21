@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TimePickerNgComponent } from '../../../../dist/time-picker-ng';
+import { TimePickerNgComponent } from '../../../time-picker-ng/src/public-api';
 
 @Component({
   selector: 'app-root',
