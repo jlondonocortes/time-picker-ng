@@ -2,23 +2,43 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.8.
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name --project time-picker-ng` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project time-picker-ng`.
-> Note: Don't forget to add `--project time-picker-ng` or else it will be added to the default project in your `angular.json` file. 
+### 1.Install component
 
-## Build
+```sh
+npm i --save time-picker-ng
+```
 
-Run `ng build time-picker-ng` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. Import component
 
-## Publishing
+```ts
+import {TimePickerNgComponent } from '@time-picker-ng'
 
-After building your library with `ng build time-picker-ng`, go to the dist folder `cd dist/time-picker-ng` and run `npm publish`.
+@Component({
+    imports:[TimePickerNgComponent]
+})
+export class AppComponent {
+    //Get time
+    getSelectedTime(time: string){
+        console.log(time);
+    }
+}
+```
 
-## Running unit tests
+```html
+<time-picker-ng
+time="12"
+(selectedTimeEvent)="getSelectedTime($event)"
+></time-picker-ng>
+```
 
-Run `ng test time-picker-ng` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Configure
+| Name               | Type     | Description                        |
+| ------------------ | -------- |----------------------------------- |
+| time               | string   | Format time 12 or 24. default: 12  |
+| selectedTimeEvent  | function | Return selectedTime to string      |
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[MIT](https://github.com/jlondonocortes/time-picker-ng/blob/main/LICENSE)

@@ -1,6 +1,7 @@
 {
-  "name": "time-picker-ng",
-  "version": "0.0.1",
+  "name": "@tuckito/time-picker-ng",
+  "version": "0.0.2-alpha.1",
+  "description": "Componenet for select time",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"
@@ -8,5 +9,20 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "keywords": [
+    "angular",
+    "time",
+    "plugin",
+    "time picker"
+  ],
+  "author": "jlondonocortes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/jlondonocortes/time-picker-ng"
+  },
+  "bugs":{
+    "url": "https://github.com/jlondonocortes/time-picker-ng/issues"
+  }
 }
