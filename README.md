@@ -11,9 +11,10 @@ npm i --save time-picker-ng
 ### 2. Import component
 
 ```ts
-import {TimePickerNgComponent } from '@time-picker-ng'
+import {TimePickerNgComponent } from '@tuckito/time-picker-ng'
 
 @Component({
+    standalone: true,
     imports:[TimePickerNgComponent]
 })
 export class AppComponent {

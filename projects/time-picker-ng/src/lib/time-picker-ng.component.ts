@@ -1,10 +1,9 @@
 import { Component,  EventEmitter,  Input, Output, OnInit,  ViewEncapsulation } from '@angular/core';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'time-picker-ng',
   standalone: true,
-  imports: [NgFor],
+  imports: [],
   templateUrl: './time-picker-ng.component.html',
   styleUrls: ['./time-picker-ng.component.css'],
   encapsulation: ViewEncapsulation.None
