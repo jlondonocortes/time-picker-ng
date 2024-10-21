@@ -1,6 +1,6 @@
 {
   "name": "@tuckito/time-picker-ng",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-alpha.2",
   "description": "Componenet for select time",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
